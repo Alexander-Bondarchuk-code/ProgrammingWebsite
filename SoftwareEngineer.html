@@ -167,7 +167,7 @@ header {
     <div class="sidebar" id="sidebar">
         <div onclick="openHomePage()">Головна</div>
         <div onclick="openAboutPage()">Про нас</div>
-        <div onclick="openCoursesPanel()">Курси</div>
+        <div onclick="openCoursesPage()">Курси</div>
         <div onclick="openContactsPage()">Контакти</div>
         <div onclick="openReviewsPage()">Відгуки</div>
     </div>
@@ -178,9 +178,6 @@ header {
             const overlay = document.querySelector('.overlay');
             sidebar.classList.toggle('active');
             overlay.classList.toggle('active');
-        }
-        function goCourses() {
-          window.location.href = "index.html#coursesPanel"; // або окрема сторінка, якщо є
         }
     function openContactsPage() {
       window.open('/contacts.html', '_blank'); // або location.href = '/contacts.html';
@@ -195,6 +192,9 @@ header {
     function openHomePage() {
       window.open('/website.html', '_blank'); // або просто location.href = '/reviews.html'; якщо хочеш в тій же вкладці
     }
+        function openCoursesPage() {
+          window.open('/сourses.html', '_blank');
+        }
     </script>
 </div>
 </body>
