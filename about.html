@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Про нас — IT Way</title>
+    <link rel="stylesheet" href="styles.css"> <!-- або встав код CSS прямо, якщо не використовуєш styles.css -->
+    <style>
+
+    body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #e2e8d9;
+    color: #1f1f1f;
+    overflow-x: hidden;
+    }
+
+    header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #d3e3c3;
+    }
+
+    .logo {
+    font-weight: bold;
+    font-size: 1.5em;
+    }
+
+    /* Встав сюди увесь решту CSS з головної сторінки */
+    /* ... (весь CSS з твого файлу) ... */
+    body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #e2e8d9;
+    color: #1f1f1f;
+    overflow-x: hidden;
+    }
+
+    header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #d3e3c3;
+    }
+
+    .logo {
+    font-weight: bold;
+    font-size: 1.5em;
+    }
+
+    .burger {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    }
+
+    .burger div {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    }
+
+    .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    display: none;
+    }
+
+    .overlay.active {
+    display: block;
+    }
+
+    .sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: #f0f0f0;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transform: translateX(100%);
+    z-index: 1000;
+    }
+
+    .sidebar.active {
+    transform: translateX(0);
+    }
+
+    .hero {
+    text-align: center;
+    padding: 60px 20px;
+    }
+
+    .hero h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    }
+
+    .button {
+    background-color: #7c9d5f;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1em;
+    cursor: pointer;
+    margin: 20px 0;
+    }
+
+    .stats {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: #dce9d2;
+    padding: 30px 10px;
+    }
+
+    .stat-box {
+    text-align: center;
+    margin: 10px;
+    }
+
+    .courses {
+    padding: 30px 20px;
+    }
+
+    .courses h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    }
+
+    .course-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    }
+
+    .tag {
+    border: 2px solid #333;
+    border-radius: 20px;
+    padding: 5px 15px;
+    font-size: 0.9em;
+    cursor: pointer;
+    }
+    .bottom-panels {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 40px 20px;
+    background-color: #d3e3c3;
+    gap: 20px;
+    }
+
+    .panel {
+    text-align: center;
+    max-width: 200px;
+    }
+
+    .panel-img {
+    width: 100%;
+    max-width: 100px;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    }
+
+    .courses-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #ffffff;
+    display: none;
+    flex-direction: column;
+    z-index: 1001;
+    overflow-y: auto;
+    }
+
+    .courses-panel.active {
+    display: flex;
+    }
+
+    .courses-content {
+    width: 100%;
+    height: 100%;
+    padding: 40px 20px;
+    text-align: center;
+    }
+
+    .course-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+    }
+
+    .course-item {
+    background-color: #d3e3c3;
+    padding: 20px;
+    border-radius: 12px;
+    min-width: 200px;
+    font-weight: bold;
+    }
+
+    .close-btn {
+    margin-top: 40px;
+    background-color: #7c9d5f;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1em;
+    cursor: pointer;
+    }
+    .second-page-background {
+    background-color: #e2e8d9; /* Колір фону, такий самий як на першій сторінці */
+    }
+    .course-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #d3e3c3;
+    padding: 20px;
+    border-radius: 12px;
+    min-width: 200px;
+    max-width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .course-description {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #333;
+    text-align: center;
+    }
+    .course-link {
+    text-decoration: none;
+    color: inherit;
+    }
+
+    .course-link:hover .course-block {
+    transform: scale(1.02);
+    transition: transform 0.2s ease;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+        nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #1f1f1f;
+  font-weight: bold;
+}
+.courses {
+  background-color: #f7fbe8;
+  border-top: 2px solid #c0d6b2;
+  border-bottom: 2px solid #c0d6b2;
+}
+        header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #d3e3c3;
+}
+.sidebar a {
+    color: #444; /* темно-сірий */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1em;
+    padding: 6px 0; /* зменшили вертикальний відступ */
+    display: block;
+}
+
+.sidebar a:visited {
+    color: #444;
+}
+
+.sidebar a:hover {
+    color: #222; /* ще темніший при наведенні */
+}
+
+    </style>
+</head>
+<body class="second-page-background">
+
+<header>
+    <div class="logo">IT WAY</div>
+    <div class="burger" onclick="toggleSidebar()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</header>
+
+<section class="hero">
+    <h1>Про нас</h1>
+    <p>Ми — IT Way, команда, що з 2012 року допомагає людям відкривати двері в IT-сферу. Наша мета — дати якісні знання, що дійсно змінюють життя.</p>
+</section>
+
+<section class="courses">
+    <h2>Наш підхід</h2>
+    <div class="course-tags">
+        <div class="tag">Індивідуальний підхід</div>
+        <div class="tag">Практичне навчання</div>
+        <div class="tag">Кар'єрна підтримка</div>
+
+    </div>
+</section>
+<div class="overlay" onclick="toggleSidebar()"></div>
+<div class="sidebar" id="sidebar">
+    <div onclick="openHomePage()">Головна</div>
+    <div onclick="openAboutPage()">Про нас</div>
+    <div onclick="openCoursesPanel()">Курси</div>
+    <div onclick="openContactsPage()">Контакти</div>
+    <div onclick="openReviewsPage()">Відгуки</div>
+</div>
+<section class="bottom-panels">
+    <div class="panel">
+        <img src="pictures/default.jpg" alt="Фото 4" class="panel-img">
+        <p>Професійні викладачі</p>
+    </div>
+    <div class="panel">
+        <img src="images/Фото2.jpg" alt="Фото 2" class="panel-img">
+        <p>Актуальні технології</p>
+    </div>
+    <div class="panel">
+        <img src="images/Фото3.jpg" alt="Фото 3" class="panel-img">
+        <p>Сотні успішних випускників</p>
+    </div>
+    <a href="Website.html" class="back-btn">Назад</a>
+</section>
+<script>
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.querySelector('.overlay');
+        sidebar.classList.toggle('active');
+        overlay.classList.toggle('active');
+    }
+    function goCourses() {
+      window.location.href = "index.html#coursesPanel"; // або окрема сторінка, якщо є
+    }
+function openContactsPage() {
+  window.open('/contacts.html', '_blank'); // або location.href = '/contacts.html';
+}
+
+function openAboutPage() {
+  window.open('/about.html', '_blank');
+}
+    function openReviewsPage() {
+  window.open('/reviews.html', '_blank'); // або просто location.href = '/reviews.html'; якщо хочеш в тій же вкладці
+}
+function openHomePage() {
+  window.open('/website.html', '_blank'); // або просто location.href = '/reviews.html'; якщо хочеш в тій же вкладці
+}
+</script>
+
+</body>
+</html>

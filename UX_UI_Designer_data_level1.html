@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>UX/UI Designer — Рівень 1</title>
+    <style>
+        body {
+          margin: 0;
+          font-family: 'Segoe UI', sans-serif;
+          background-color: #e2e8d9;
+          color: #1f1f1f;
+          overflow-x: hidden;
+        }
+
+        header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 20px;
+          background-color: #d3e3c3;
+        }
+
+        .logo {
+          font-weight: bold;
+          font-size: 1.5em;
+        }
+
+        .burger {
+          cursor: pointer;
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+        }
+
+        .burger div {
+          width: 25px;
+          height: 3px;
+          background-color: #333;
+        }
+
+        .overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: rgba(0, 0, 0, 0.3);
+          z-index: 999;
+          display: none;
+        }
+
+        .overlay.active {
+          display: block;
+        }
+
+        .sidebar {
+          position: fixed;
+          top: 0;
+          right: 0;
+          width: 250px;
+          height: 100vh;
+          background-color: #f0f0f0;
+          box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+          transition: transform 0.3s ease;
+          padding: 30px 20px;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          transform: translateX(100%);
+          z-index: 1000;
+        }
+
+        .sidebar.active {
+          transform: translateX(0);
+        }
+
+        .content {
+          padding: 40px 20px;
+          max-width: 800px;
+          margin: 0 auto;
+          text-align: center;
+        }
+
+        h1 {
+          font-size: 2em;
+          margin-bottom: 20px;
+        }
+
+        .description {
+          font-size: 1.1em;
+          margin-bottom: 40px;
+          line-height: 1.6;
+        }
+
+        .back-btn {
+          background-color: #7c9d5f;
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 20px;
+          font-size: 1em;
+          cursor: pointer;
+          text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Overlay -->
+<div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+<header>
+    <div class="logo">IT WAY</div>
+    <div class="burger" onclick="toggleSidebar()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</header>
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+    <div onclick="openHomePage()">Головна</div>
+    <div onclick="openAboutPage()">Про нас</div>
+    <div onclick="openCoursesPanel()">Курси</div>
+    <div onclick="openContactsPage()">Контакти</div>
+    <div onclick="openReviewsPage()">Відгуки</div>
+</div>
+
+<div class="content">
+    <h1>Хто такий UX/UI Designer — Рівень 1</h1>
+    <div class="description">
+        Кожен із нас користується додатками, сайтами, банкоматами, навіть кавомашинами.
+        І кожен хоч раз думав: "Ой, це зручно" або "Щось незрозуміло зробили".
+        Те, наскільки зручно і красиво виглядає інтерфейс, – результат роботи UX/UI дизайнера.
+
+        UX/UI Designer — це фахівець, який створює інтерфейси, що поєднують зручність та естетику.
+        Він не просто "малює", як дехто вважає.
+        Його задача — зробити так, щоб користувач легко і швидко розібрався з продуктом: сайтом, застосунком чи будь-яким цифровим сервісом.
+
+        Важливо розрізняти два поняття, які часто плутають — UX і UI.
+
+        * UX (User Experience) — це користувацький досвід.
+        UX-дизайнер думає про те, як користувач буде взаємодіяти з продуктом: чи зручно, чи зрозуміло, чи логічно.
+        Наприклад, якщо ви замовляєте піцу через застосунок, UX відповідає за те, щоб ви змогли швидко знайти меню, вибрати страву, оплатити без плутанини і отримати підтвердження.
+
+        * UI (User Interface) — це користувацький інтерфейс.
+        UI-дизайнер відповідає за зовнішній вигляд: кольори, кнопки, шрифти, іконки.
+        Те, що ми бачимо на екрані — результат UI-дизайну. Я
+        кщо UX — це логіка і структура, то UI — це візуальне оформлення.
+
+        Один дизайнер може поєднувати обидві ролі або спеціалізуватися на чомусь одному.
+
+        Загалом, UX/UI Designer виконує кілька ключових задач:
+
+        Дослідження: хто користуватиметься продуктом, які в них потреби.
+        Створення wireframe і прототипів — це чорнові схеми, де позначено розташування елементів.
+        Дизайн макетів — вже красиві, кольорові сторінки, готові для передачі розробникам.
+        Тестування — перевірка, чи все працює, як задумано, та що можна покращити.
+
+        Дизайнери працюють у різних сферах: в IT-компаніях, маркетингових агенціях, стартапах, фрилансі.
+        Вони можуть створювати мобільні застосунки, сайти, CRM-системи, веб-сервіси, банківські інтерфейси — усе, з чим взаємодіє користувач на екрані.
+
+        Чому ця професія настільки актуальна?
+        Тому що цифрових продуктів стає більше щодня.
+        І якщо раніше досить було "аби працювало", то сьогодні все вирішує зручність і вигляд.
+        Люди не хочуть розбиратись у складних меню. Вони хочуть натиснути — і отримати результат.
+        Саме тому компанії вкладають ресурси в UX/UI — щоб користувачі залишались задоволеними, не йшли до конкурентів і повертались знову.
+
+        Отже, UX/UI Designer — це не художник і не програміст.
+        Це людина, яка стоїть між технологією та користувачем.
+        Вона робить складне — простим, а цифрове — зрозумілим і приємним.
+        І з цього уроку починається знайомство з однією з найзатребуваніших професій сучасного цифрового світу.
+
+    </div>
+    <a href="UX_UI_Designer.html" class="back-btn">Назад</a>
+
+</div>
+
+<script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('overlay');
+      sidebar.classList.toggle('active');
+      overlay.classList.toggle('active');
+    }
+    function goCourses() {
+      window.location.href = "index.html#coursesPanel"; // або окрема сторінка, якщо є
+    }
+function openContactsPage() {
+  window.open('/contacts.html', '_blank'); // або location.href = '/contacts.html';
+}
+
+function openAboutPage() {
+  window.open('/about.html', '_blank');
+}
+    function openReviewsPage() {
+  window.open('/reviews.html', '_blank'); // або просто location.href = '/reviews.html'; якщо хочеш в тій же вкладці
+}
+function openHomePage() {
+  window.open('/website.html', '_blank'); // або просто location.href = '/reviews.html'; якщо хочеш в тій же вкладці
+}
+
+
+</script>
+
+</body>
+</html>

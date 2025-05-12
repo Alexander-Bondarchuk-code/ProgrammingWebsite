@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Project Manager — Рівень 3</title>
+    <style>
+        body {
+          margin: 0;
+          font-family: 'Segoe UI', sans-serif;
+          background-color: #e2e8d9;
+          color: #1f1f1f;
+          overflow-x: hidden;
+        }
+
+        header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 20px;
+          background-color: #d3e3c3;
+        }
+
+        .logo {
+          font-weight: bold;
+          font-size: 1.5em;
+        }
+
+        .burger {
+          cursor: pointer;
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+        }
+
+        .burger div {
+          width: 25px;
+          height: 3px;
+          background-color: #333;
+        }
+
+        .overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: rgba(0, 0, 0, 0.3);
+          z-index: 999;
+          display: none;
+        }
+
+        .overlay.active {
+          display: block;
+        }
+
+        .sidebar {
+          position: fixed;
+          top: 0;
+          right: 0;
+          width: 250px;
+          height: 100vh;
+          background-color: #f0f0f0;
+          box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+          transition: transform 0.3s ease;
+          padding: 30px 20px;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          transform: translateX(100%);
+          z-index: 1000;
+        }
+
+        .sidebar.active {
+          transform: translateX(0);
+        }
+
+        .content {
+          padding: 40px 20px;
+          max-width: 800px;
+          margin: 0 auto;
+          text-align: center;
+        }
+
+        h1 {
+          font-size: 2em;
+          margin-bottom: 20px;
+        }
+
+        .description {
+          font-size: 1.1em;
+          margin-bottom: 40px;
+          line-height: 1.6;
+        }
+
+        .back-btn {
+          background-color: #7c9d5f;
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 20px;
+          font-size: 1em;
+          cursor: pointer;
+          text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Overlay -->
+<div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+<header>
+    <div class="logo">IT WAY</div>
+    <div class="burger" onclick="toggleSidebar()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</header>
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+    <div onclick="openHomePage()">Головна</div>
+    <div onclick="openAboutPage()">Про нас</div>
+    <div onclick="openCoursesPanel()">Курси</div>
+    <div onclick="openContactsPage()">Контакти</div>
+    <div onclick="openReviewsPage()">Відгуки</div>
+</div>
+
+<div class="content">
+    <h1>Щоденна робота Project Manager: процес, зустрічі, задачі — Рівень 3</h1>
+    <div class="description">
+        Project Manager — це не теоретик з графіками. Це людина, яка щодня живе в ритмі задач, дедлайнів, командної роботи та постійної комунікації. У цьому уроці ми подивимось, як насправді виглядає звичайний день PM, які інструменти він використовує і як тримає проєкт “на плаву”.
+
+        З чого починається день Project Manager
+
+        Зазвичай усе починається зі щоденної командної зустрічі — її називають daily stand-up (у межах Agile/Scrum).
+        Команда збирається на 10–15 хвилин і відповідає на три питання:
+
+        1. Що зробив учора?
+        2. Над чим працюю сьогодні?
+        3. Чи є проблеми?
+
+        PM слухає, занотовує ризики, допомагає вирішити блокування.
+        Якщо хтось не може продовжити роботу — він втручається, шукає рішення, знімає бар’єри.
+
+        Які задачі виконує PM протягом дня
+
+        Протягом дня Project Manager:
+
+        стежить за прогресом команди (всі йдуть за планом чи хтось відстає);
+        оновлює статуси задач у таск-трекерах (наприклад, Jira, Trello, Asana);
+        проводить зустрічі з клієнтами або керівництвом;
+        пише звіт про статус проєкту (що готово, що в процесі, де проблеми);
+        допомагає команді з пріоритетами (що важливіше зараз);
+        документує зміни, оновлює графік, перевіряє дедлайни.
+
+        Це постійна робота з деталями, людьми й інформацією.
+
+        Основні інструменти PM
+
+        Jira / Trello — для управління задачами. Тут видно, хто що робить і коли.
+        Google Docs / Notion / Confluence — для ведення документації: плани, нотатки, звіти.
+        Slack / Telegram / Zoom / Meet — для комунікації з командою і клієнтом.
+        Excel / Google Sheets — для графіків, планів, бюджетів.
+
+        PM не працює у вакуумі — він постійно в контакті з усіма: розробниками, тестувальниками, дизайнерами, аналітиками, клієнтами.
+
+        Зустрічі, звіти, комунікація
+
+        PM не просто слідкує — він пояснює, узгоджує, домовляється.
+        Це включає:
+
+        планування спринтів (розподіл задач на 1–2 тижні);
+        доставка оновлень клієнту (що вже зроблено);
+        обговорення змін (нові ідеї, корекція плану);
+        ретроспектива — зустріч, на якій команда аналізує, що вийшло добре, а що — ні.
+
+        Коли виникають затримки, конфлікти або непорозуміння — PM першим бере ініціативу, шукає компроміс, пояснює обом сторонам, допомагає знайти рішення.
+
+        Висновок
+
+        Робота Project Manager — це постійна активність.
+        Він не сидить осторонь — він зв'язує все і всіх: тримає проєкт на рейках, команду в темпі, клієнта в курсі.
+        Це про відповідальність, швидку реакцію, комунікацію і холодну голову, коли всі навколо панікують.
+
+        Project Manager не той, хто “каже, що робити”, а той, хто робить так, щоб усі могли добре працювати.
+        І саме тому його щоденна робота має ключове значення для успіху проєкту.
+
+    </div>
+    <a href="Project_Manager.html" class="back-btn">Назад</a>
+
+</div>
+
+<script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('overlay');
+      sidebar.classList.toggle('active');
+      overlay.classList.toggle('active');
+    }
+
+    function goCourses() {
+      window.location.href = "index.html#coursesPanel"; // або окрема сторінка, якщо є
+    }
+function openContactsPage() {
+  window.open('/contacts.html', '_blank'); // або location.href = '/contacts.html';
+}
+
+function openAboutPage() {
+  window.open('/about.html', '_blank');
+}
+    function openReviewsPage() {
+  window.open('/reviews.html', '_blank'); // або просто location.href = '/reviews.html'; якщо хочеш в тій же вкладці
+}
+function openHomePage() {
+  window.open('/website.html', '_blank'); // або просто location.href = '/reviews.html'; якщо хочеш в тій же вкладці
+}
+
+</script>
+
+</body>
+</html>

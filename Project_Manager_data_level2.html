@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Project Manager — Рівень 2</title>
+    <style>
+        body {
+          margin: 0;
+          font-family: 'Segoe UI', sans-serif;
+          background-color: #e2e8d9;
+          color: #1f1f1f;
+          overflow-x: hidden;
+        }
+
+        header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 20px;
+          background-color: #d3e3c3;
+        }
+
+        .logo {
+          font-weight: bold;
+          font-size: 1.5em;
+        }
+
+        .burger {
+          cursor: pointer;
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+        }
+
+        .burger div {
+          width: 25px;
+          height: 3px;
+          background-color: #333;
+        }
+
+        .overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: rgba(0, 0, 0, 0.3);
+          z-index: 999;
+          display: none;
+        }
+
+        .overlay.active {
+          display: block;
+        }
+
+        .sidebar {
+          position: fixed;
+          top: 0;
+          right: 0;
+          width: 250px;
+          height: 100vh;
+          background-color: #f0f0f0;
+          box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+          transition: transform 0.3s ease;
+          padding: 30px 20px;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          transform: translateX(100%);
+          z-index: 1000;
+        }
+
+        .sidebar.active {
+          transform: translateX(0);
+        }
+
+        .content {
+          padding: 40px 20px;
+          max-width: 800px;
+          margin: 0 auto;
+          text-align: center;
+        }
+
+        h1 {
+          font-size: 2em;
+          margin-bottom: 20px;
+        }
+
+        .description {
+          font-size: 1.1em;
+          margin-bottom: 40px;
+          line-height: 1.6;
+        }
+
+        .back-btn {
+          background-color: #7c9d5f;
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 20px;
+          font-size: 1em;
+          cursor: pointer;
+          text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Overlay -->
+<div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+<header>
+    <div class="logo">IT WAY</div>
+    <div class="burger" onclick="toggleSidebar()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</header>
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+    <div onclick="openHomePage()">Головна</div>
+    <div onclick="openAboutPage()">Про нас</div>
+    <div onclick="openCoursesPanel()">Курси</div>
+    <div onclick="openContactsPage()">Контакти</div>
+    <div onclick="openReviewsPage()">Відгуки</div>
+</div>
+
+<div class="content">
+    <h1>З чого починається проєкт: базові принципи управління — Рівень 2</h1>
+    <div class="description">
+        Коли команда починає новий проєкт, важливо не просто “почати працювати”, а знати чітко: що робити, коли, хто за що відповідає, і як не провалити терміни.
+        Саме для цього потрібне управління проєктом.
+        У цьому уроці ми розглянемо основні поняття, з якими працює кожен Project Manager.
+
+        Що таке проєкт
+        Проєкт — це не просто “робота”.
+        Це конкретна ціль, яка має початок, кінець і обмежені ресурси.
+
+        Наприклад:
+        створити сайт для школи;
+        запустити мобільний застосунок;
+        зробити редизайн інтернет-магазину.
+        Кожен проєкт має:
+        ціль (що ми хочемо отримати),
+        час (до якого потрібно зробити),
+        ресурси (люди, гроші, інструменти),
+        обмеження (що не можна або не встигається зробити).
+
+        Планування — перший крок до успіху
+        Project Manager починає з плану.
+
+        Він розбиває великий проєкт на етапи та задачі, наприклад:
+        Збір вимог від клієнта.
+        Створення дизайну.
+        Розробка.
+        Тестування.
+        Запуск.
+
+        До кожного етапу прив’язуються дедлайни — конкретні дати, коли що має бути готове.
+        Потім задачі розподіляються між учасниками команди.
+        Це і є основа управління.
+
+        Що таке ризики і як ними керувати
+        У будь-якому проєкті є ризики — це те, що може піти не так.
+        Наприклад:
+        хтось із команди захворіє;
+        замовник змінить вимоги;
+        технічна проблема затримає роботу.
+
+        Завдання PM — не чекати проблем, а думати про них наперед.
+        Для цього він:
+        визначає можливі ризики;
+        оцінює, наскільки вони серйозні;
+        має план “Б” на випадок, якщо щось трапиться.
+
+        Методи управління: Waterfall і Agile
+        Є два основних підходи до керування проєктами:
+
+        Waterfall — послідовна модель: спочатку план, потім розробка, потім тестування.
+        Підходить для проєктів, де все чітко відомо наперед (наприклад, державні сайти, будівництво систем).
+
+        Agile — гнучка модель: команда працює невеликими частинами (спринтами), постійно вдосконалює продукт, враховує зворотний зв’язок.
+        Підходить для ІТ, стартапів, мобільних застосунків.
+
+        Project Manager має знати обидва підходи й обирати той, який найкраще підходить під конкретний проєкт.
+
+        Команда проєкту: ролі та взаємодія
+        PM не працює сам — він керує командою.
+
+        Зазвичай до неї входять:
+        розробники — створюють продукт;
+        дизайнери — відповідають за вигляд і UX;
+        QA інженери — перевіряють якість;
+        бізнес-аналітики — з’ясовують потреби замовника;
+        менеджери з боку клієнта — ті, хто затверджує результати.
+        Project Manager координує всіх цих людей, слідкує, щоб кожен знав свою роль і виконував її вчасно.
+
+        Висновок
+        Керування проєктами — це про план, логіку й відповідальність.
+        Хороший PM не просто "керує", а робить так, щоб усе було під контролем, навіть коли все йде не за планом.
+        І чим краще він знає основи, тим спокійніше працює вся команда.
+    </div>
+    <a href="Project_Manager.html" class="back-btn">Назад</a>
+
+</div>
+
+<script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('overlay');
+      sidebar.classList.toggle('active');
+      overlay.classList.toggle('active');
+    }
+
+    function goCourses() {
+      window.location.href = "index.html#coursesPanel"; // або окрема сторінка, якщо є
+    }
+function openContactsPage() {
+  window.open('/contacts.html', '_blank'); // або location.href = '/contacts.html';
+}
+
+function openAboutPage() {
+  window.open('/about.html', '_blank');
+}
+    function openReviewsPage() {
+  window.open('/reviews.html', '_blank'); // або просто location.href = '/reviews.html'; якщо хочеш в тій же вкладці
+}
+function openHomePage() {
+  window.open('/website.html', '_blank'); // або просто location.href = '/reviews.html'; якщо хочеш в тій же вкладці
+}
+
+</script>
+
+</body>
+</html>

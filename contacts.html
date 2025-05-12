@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Контакти — IT Way</title>
+    <style>
+        body {
+          margin: 0;
+          font-family: 'Segoe UI', sans-serif;
+          background-color: #e2e8d9;
+          color: #1f1f1f;
+        }
+
+        .header {
+          padding: 20px;
+          background-color: #d3e3c3;
+          text-align: center;
+          font-size: 1.5em;
+          font-weight: bold;
+        }
+
+        .content {
+          padding: 40px 20px;
+          text-align: center;
+        }
+
+        .contact-info {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          max-width: 400px;
+          margin: 0 auto;
+        }
+
+        .contact-box {
+          background-color: #d3e3c3;
+          padding: 20px;
+          border-radius: 12px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .close-btn {
+          margin-top: 40px;
+          background-color: #7c9d5f;
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 20px;
+          font-size: 1em;
+          cursor: pointer;
+        }
+        .sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: #f0f0f0;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transform: translateX(100%);
+  z-index: 1000;
+}
+
+.sidebar.active {
+  transform: translateX(0);
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: #f0f0f0;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transform: translateX(100%);
+  z-index: 1000;
+}
+
+.sidebar.active {
+  transform: translateX(0);
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #d3e3c3;
+}
+        .sidebar a {
+    color: #444; /* темно-сірий */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1em;
+    padding: 6px 0; /* зменшили вертикальний відступ */
+    display: block;
+}
+
+.sidebar a:visited {
+    color: #444;
+}
+
+.sidebar a:hover {
+    color: #222; /* ще темніший при наведенні */
+}
+        .burger {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+}
+    </style>
+</head>
+
+<body>
+<header>
+    <div class="logo">IT WAY</div>
+    <div class="burger" onclick="toggleSidebar()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</header>
+<div class="header">IT WAY — Контакти</div>
+
+<div class="content">
+    <h2>Наші контакти</h2>
+    <div class="contact-info">
+        <div class="contact-box">📞 Телефон: +38* ** *** ****</div>
+        <div class="contact-box">📧 Email: ******</div>
+        <div class="contact-box">📍 Адреса: Київ</div>
+    </div>
+    <a href="Website.html" class="back-btn">Назад</a>
+</div>
+    <div class="overlay" onclick="toggleSidebar()"></div>
+    <div class="sidebar" id="sidebar">
+        <div onclick="openHomePage()">Головна</div>
+        <div onclick="openAboutPage()">Про нас</div>
+        <div onclick="openCoursesPanel()">Курси</div>
+        <div onclick="openContactsPage()">Контакти</div>
+        <div onclick="openReviewsPage()">Відгуки</div>
+    </div>
+<script>
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.querySelector('.overlay');
+        sidebar.classList.toggle('active');
+        overlay.classList.toggle('active');
+    }
+    function goCourses() {
+      window.location.href = "index.html#coursesPanel"; // або окрема сторінка, якщо є
+    }
+function openContactsPage() {
+  window.open('/contacts.html', '_blank'); // або location.href = '/contacts.html';
+}
+
+function openAboutPage() {
+  window.open('/about.html', '_blank');
+}
+    function openReviewsPage() {
+  window.open('/reviews.html', '_blank'); // або просто location.href = '/reviews.html'; якщо хочеш в тій же вкладці
+}
+function openHomePage() {
+  window.open('/website.html', '_blank'); // або просто location.href = '/reviews.html'; якщо хочеш в тій же вкладці
+}
+</script>
+</div>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Відгуки — IT Way</title>
+    <style>
+        body {
+          margin: 0;
+          font-family: 'Segoe UI', sans-serif;
+          background-color: #e2e8d9;
+          color: #1f1f1f;
+        }
+
+        .header {
+          padding: 20px;
+          background-color: #d3e3c3;
+          text-align: center;
+          font-size: 1.5em;
+          font-weight: bold;
+        }
+
+        .courses-content {
+          padding: 40px 20px;
+          text-align: center;
+        }
+
+        .course-grid {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 20px;
+          justify-content: center;
+          margin-top: 30px;
+        }
+
+        .course-block {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          background-color: #d3e3c3;
+          padding: 20px;
+          border-radius: 12px;
+          min-width: 200px;
+          max-width: 250px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .course-item {
+          font-weight: bold;
+          font-size: 1.1em;
+        }
+
+        .course-description {
+          margin-top: 10px;
+          font-size: 0.9em;
+          color: #333;
+          text-align: center;
+        }
+
+        .close-btn {
+          margin-top: 40px;
+          background-color: #7c9d5f;
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 20px;
+          font-size: 1em;
+          cursor: pointer;
+        }
+         .sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: #f0f0f0;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transform: translateX(100%);
+  z-index: 1000;
+}
+
+.sidebar.active {
+  transform: translateX(0);
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: #f0f0f0;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transform: translateX(100%);
+  z-index: 1000;
+  text-align: left;
+  align-items: flex-start;
+}
+
+.sidebar.active {
+  transform: translateX(0);
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #d3e3c3;
+}
+        .sidebar a {
+    color: #444; /* темно-сірий */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1em;
+    padding: 6px 0; /* зменшили вертикальний відступ */
+    display: block;
+}
+
+.sidebar a:visited {
+    color: #444;
+}
+
+.sidebar a:hover {
+    color: #222; /* ще темніший при наведенні */
+}
+        .burger {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+}
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo">IT WAY</div>
+    <div class="burger" onclick="toggleSidebar()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</header>
+<div class="overlay" onclick="toggleSidebar()"></div>
+<div class="sidebar" id="sidebar">
+    <div onclick="openHomePage()">Головна</div>
+    <div onclick="openAboutPage()">Про нас</div>
+    <div onclick="openCoursesPanel()">Курси</div>
+    <div onclick="openContactsPage()">Контакти</div>
+    <div onclick="openReviewsPage()">Відгуки</div>
+</div>
+<div class="header">IT WAY — Відгуки</div>
+
+<div class="courses-content">
+    <h2>Відгуки</h2>
+    <p>Що кажуть наші учні:</p>
+    <div class="course-grid">
+        <div class="course-block">
+            <div class="course-item">Дарина, Frontend</div>
+            <div class="course-description">“Курс дав чітке розуміння JavaScript. Після завершення знайшла роботу за 2 місяці!”</div>
+        </div>
+        <div class="course-block">
+            <div class="course-item">Олександр, QA</div>
+            <div class="course-description">“Дуже практичний курс. Постійно працювали з реальними задачами.”</div>
+        </div>
+        <div class="course-block">
+            <div class="course-item">Анастасія, UI/UX</div>
+            <div class="course-description">“Інтерактивне навчання та підтримка менторів — це щось неймовірне!”</div>
+        </div>
+    </div>
+    <a href="Website.html" class="back-btn">Назад</a>
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.querySelector('.overlay');
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+        function goCourses() {
+          window.location.href = "index.html#coursesPanel"; // або окрема сторінка, якщо є
+        }
+    function openContactsPage() {
+      window.open('/contacts.html', '_blank'); // або location.href = '/contacts.html';
+    }
+
+    function openAboutPage() {
+      window.open('/about.html', '_blank');
+    }
+        function openReviewsPage() {
+      window.open('/reviews.html', '_blank'); // або просто location.href = '/reviews.html'; якщо хочеш в тій же вкладці
+    }
+    function openHomePage() {
+      window.open('/website.html', '_blank'); // або просто location.href = '/reviews.html'; якщо хочеш в тій же вкладці
+    }
+    </script>
+</div>
+</body>
+</html>

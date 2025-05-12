@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>UX/UI Designer — Рівень 3</title>
+    <style>
+        body {
+          margin: 0;
+          font-family: 'Segoe UI', sans-serif;
+          background-color: #e2e8d9;
+          color: #1f1f1f;
+          overflow-x: hidden;
+        }
+
+        header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 20px;
+          background-color: #d3e3c3;
+        }
+
+        .logo {
+          font-weight: bold;
+          font-size: 1.5em;
+        }
+
+        .burger {
+          cursor: pointer;
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+        }
+
+        .burger div {
+          width: 25px;
+          height: 3px;
+          background-color: #333;
+        }
+
+        .overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: rgba(0, 0, 0, 0.3);
+          z-index: 999;
+          display: none;
+        }
+
+        .overlay.active {
+          display: block;
+        }
+
+        .sidebar {
+          position: fixed;
+          top: 0;
+          right: 0;
+          width: 250px;
+          height: 100vh;
+          background-color: #f0f0f0;
+          box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+          transition: transform 0.3s ease;
+          padding: 30px 20px;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          transform: translateX(100%);
+          z-index: 1000;
+        }
+
+        .sidebar.active {
+          transform: translateX(0);
+        }
+
+        .content {
+          padding: 40px 20px;
+          max-width: 800px;
+          margin: 0 auto;
+          text-align: center;
+        }
+
+        h1 {
+          font-size: 2em;
+          margin-bottom: 20px;
+        }
+
+        .description {
+          font-size: 1.1em;
+          margin-bottom: 40px;
+          line-height: 1.6;
+        }
+
+        .back-btn {
+          background-color: #7c9d5f;
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 20px;
+          font-size: 1em;
+          cursor: pointer;
+          text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Overlay -->
+<div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+<header>
+    <div class="logo">IT WAY</div>
+    <div class="burger" onclick="toggleSidebar()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</header>
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+    <div onclick="openHomePage()">Головна</div>
+    <div onclick="openAboutPage()">Про нас</div>
+    <div onclick="openCoursesPanel()">Курси</div>
+    <div onclick="openContactsPage()">Контакти</div>
+    <div onclick="openReviewsPage()">Відгуки</div>
+</div>
+
+<div class="content">
+    <h1>Як працює UX/UI дизайнер: від ідеї до прототипу — Рівень 3</h1>
+    <div class="description">
+        Робота UX/UI дизайнера — це не просто створення красивих екранів.
+        Це чіткий процес, який включає в себе дослідження, аналіз, створення прототипів і постійну співпрацю з командою.
+        У цьому уроці ми подивимось, як виглядає типовий день дизайнера і які кроки він проходить у своїй роботі.
+
+        Все починається з ідеї.
+        Компанія хоче створити новий застосунок або оновити сайт.
+        Перед тим як щось малювати, дизайнер проводить UX-дослідження.
+        Він намагається зрозуміти: хто користуватиметься продуктом, що для них важливо, які проблеми треба вирішити.
+        Для цього проводяться опитування, аналіз конкурентів, збирається статистика користування подібними продуктами.
+
+        На основі цих даних дизайнер створює персон (user personas) — уявних представників цільової аудиторії.
+        Наприклад: "Олена, 35 років, мама двох дітей, користується мобільним банкінгом кілька разів на тиждень".
+        Це допомагає краще зрозуміти, для кого створюється продукт і що саме має бути зручно.
+
+        Далі настає етап створення прототипів.
+        Спершу дизайнер створює прості чорнові схеми — wireframes, потім — макети з кольорами та стилем (mockups), а потім — клікабельні прототипи, які можна протестувати.
+        Прототип — це майже справжній застосунок, тільки без програмного коду.
+        Його можна показати користувачам і дізнатися, що варто змінити.
+
+        У процесі роботи дизайнер не діє самостійно.
+
+        Він постійно взаємодіє з командою:
+        з розробниками, щоб вони могли реалізувати задуманий дизайн;
+        з менеджерами, які слідкують за термінами та завданнями;
+        з маркетологами, щоб дизайн відповідав цілям бізнесу;
+        з тестувальниками, які перевіряють, чи все працює як треба.
+
+        Типовий день UX/UI дизайнера може виглядати так:
+        1. Перевірка завдань у таск-менеджері (наприклад, Jira або Trello).
+        2. Коротка зустріч з командою — обговорити, над чим працює кожен.
+        3. Робота над новим макетом або правки у вже готовому прототипі.
+        4. Перегляд фідбеку від команди чи користувачів.
+        5. Підготовка матеріалів для розробників.
+
+        Усе це — частина дизайн-процесу, який постійно повторюється: дослідження → створення → тестування → покращення.
+        Це не "намалювати один раз і забути", а постійна робота над зручністю і ефективністю продукту.
+
+        У підсумку: UX/UI дизайнер — це не просто креативна професія.
+        Це аналітична, командна, технологічна робота, яка потребує уважності до деталей, вміння слухати користувача і постійно вдосконалювати продукт.
+    </div>
+    <a href="UX_UI_Designer.html" class="back-btn">Назад</a>
+
+</div>
+
+<script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('overlay');
+      sidebar.classList.toggle('active');
+      overlay.classList.toggle('active');
+    }
+
+    function goCourses() {
+      window.location.href = "index.html#coursesPanel"; // або окрема сторінка, якщо є
+    }
+function openContactsPage() {
+  window.open('/contacts.html', '_blank'); // або location.href = '/contacts.html';
+}
+
+function openAboutPage() {
+  window.open('/about.html', '_blank');
+}
+    function openReviewsPage() {
+  window.open('/reviews.html', '_blank'); // або просто location.href = '/reviews.html'; якщо хочеш в тій же вкладці
+}
+function openHomePage() {
+  window.open('/website.html', '_blank'); // або просто location.href = '/reviews.html'; якщо хочеш в тій же вкладці
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Project Manager — Рівень 5</title>
+    <style>
+        body {
+          margin: 0;
+          font-family: 'Segoe UI', sans-serif;
+          background-color: #e2e8d9;
+          color: #1f1f1f;
+          overflow-x: hidden;
+        }
+
+        header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 20px;
+          background-color: #d3e3c3;
+        }
+
+        .logo {
+          font-weight: bold;
+          font-size: 1.5em;
+        }
+
+        .burger {
+          cursor: pointer;
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+        }
+
+        .burger div {
+          width: 25px;
+          height: 3px;
+          background-color: #333;
+        }
+
+        .overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: rgba(0, 0, 0, 0.3);
+          z-index: 999;
+          display: none;
+        }
+
+        .overlay.active {
+          display: block;
+        }
+
+        .sidebar {
+          position: fixed;
+          top: 0;
+          right: 0;
+          width: 250px;
+          height: 100vh;
+          background-color: #f0f0f0;
+          box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+          transition: transform 0.3s ease;
+          padding: 30px 20px;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          transform: translateX(100%);
+          z-index: 1000;
+        }
+
+        .sidebar.active {
+          transform: translateX(0);
+        }
+
+        .content {
+          padding: 40px 20px;
+          max-width: 800px;
+          margin: 0 auto;
+          text-align: center;
+        }
+
+        h1 {
+          font-size: 2em;
+          margin-bottom: 20px;
+        }
+
+        .description {
+          font-size: 1.1em;
+          margin-bottom: 40px;
+          line-height: 1.6;
+        }
+
+        .back-btn {
+          background-color: #7c9d5f;
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 20px;
+          font-size: 1em;
+          cursor: pointer;
+          text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Overlay -->
+<div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+<header>
+    <div class="logo">IT WAY</div>
+    <div class="burger" onclick="toggleSidebar()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</header>
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+    <div onclick="openHomePage()">Головна</div>
+    <div onclick="openAboutPage()">Про нас</div>
+    <div onclick="openCoursesPanel()">Курси</div>
+    <div onclick="openContactsPage()">Контакти</div>
+    <div onclick="openReviewsPage()">Відгуки</div>
+</div>
+
+<div class="content">
+    <h1>Практика: спробуй себе в ролі Project Manager — Рівень 5</h1>
+    <div class="description">
+        Теорія дає розуміння, але справжній інтерес до професії приходить, коли пробуєш щось зробити сам.
+        У цьому уроці учні виконують прості практичні завдання — саме такі, з яких починається реальна робота Project Manager.
+
+        Завдання 1: Заплануй проєкт
+
+        Ситуація: вам потрібно організувати створення шкільного сайту або простого мобільного застосунку для бронювання книг у бібліотеці.
+
+        Задача: опиши, як виглядатиме план проєкту:
+
+        Які етапи будуть?
+        (наприклад: збір вимог, дизайн, розробка, тестування, запуск).
+        Скільки часу треба на кожен етап?
+        Хто має бути в команді?
+        (дизайнер, розробник, QA тощо).
+        Які можуть бути труднощі?
+
+        Мета: навчитися мислити структурно, розбивати складне на частини.
+
+        Завдання 2: Оціни ризики
+
+        Ситуація: на попередньому прикладі опиши 3–5 можливих проблем, які можуть виникнути під час реалізації проєкту.
+
+        Приклад:
+
+        Розробник захворіє.
+        Клієнт змінить вимоги на півшляху.
+        Продукт не встигнуть протестувати до дедлайну.
+
+        Додай: як ти би на це відреагував?
+        Як запобігти або мінімізувати наслідки?
+
+        Завдання 3: Напиши лист клієнту про затримку
+
+        Ситуація: команда не встигає завершити один із етапів проєкту вчасно.
+
+        Задача: склади короткий ввічливий лист, у якому потрібно:
+
+        пояснити ситуацію,
+        запропонувати нову дату,
+        запевнити, що команда контролює ситуацію.
+
+        Мета: потренувати навичку ділової комунікації — важливий інструмент кожного PM.
+
+        Завдання 4: Розв’яжи конфлікт у команді
+
+        Ситуація: дизайнер каже, що розробник зіпсував інтерфейс, а розробник — що дизайнер запізно надіслав правки.
+
+        Запитання:
+
+        Як ти би поговорив з кожним?
+        Як би залагодив ситуацію?
+        Як зробити так, щоб у майбутньому таке не повторилось?
+
+        Мета: зрозуміти, що PM — це не тільки про задачі, а й про людей, атмосферу та ефективну взаємодію.
+
+        Підсумок уроку і всього курсу
+
+        Project Manager — це не лише планувальник, а людина, яка об’єднує команду, мислить на кілька кроків наперед і відповідає за результат.
+        Сьогодні учні спробували:
+
+        планувати,
+        передбачати ризики,
+        вести комунікацію,
+        вирішувати конфлікти.
+
+        Це — мініверсія справжньої ролі PM у проєкті.
+        Якщо ці задачі були цікавими — це може бути ваша професія.
+        І кожен справді успішний проєкт починається з людини, яка знає, як усе тримати під контролем.
+
+    </div>
+    <a href="Project_Manager.html" class="back-btn">Назад</a>
+
+</div>
+
+<script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('overlay');
+      sidebar.classList.toggle('active');
+      overlay.classList.toggle('active');
+    }
+
+    function goCourses() {
+      window.location.href = "index.html#coursesPanel"; // або окрема сторінка, якщо є
+    }
+function openContactsPage() {
+  window.open('/contacts.html', '_blank'); // або location.href = '/contacts.html';
+}
+
+function openAboutPage() {
+  window.open('/about.html', '_blank');
+}
+    function openReviewsPage() {
+  window.open('/reviews.html', '_blank'); // або просто location.href = '/reviews.html'; якщо хочеш в тій же вкладці
+}
+function openHomePage() {
+  window.open('/website.html', '_blank'); // або просто location.href = '/reviews.html'; якщо хочеш в тій же вкладці
+}
+
+</script>
+
+</body>
+</html>

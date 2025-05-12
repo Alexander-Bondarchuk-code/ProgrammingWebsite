@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>SoftwareEngineer — Рівень 5</title>
+    <style>
+        body {
+          margin: 0;
+          font-family: 'Segoe UI', sans-serif;
+          background-color: #e2e8d9;
+          color: #1f1f1f;
+          overflow-x: hidden;
+        }
+
+        header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 20px;
+          background-color: #d3e3c3;
+        }
+
+        .logo {
+          font-weight: bold;
+          font-size: 1.5em;
+        }
+
+        .burger {
+          cursor: pointer;
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+        }
+
+        .burger div {
+          width: 25px;
+          height: 3px;
+          background-color: #333;
+        }
+
+        .overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: rgba(0, 0, 0, 0.3);
+          z-index: 999;
+          display: none;
+        }
+
+        .overlay.active {
+          display: block;
+        }
+
+        .sidebar {
+          position: fixed;
+          top: 0;
+          right: 0;
+          width: 250px;
+          height: 100vh;
+          background-color: #f0f0f0;
+          box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+          transition: transform 0.3s ease;
+          padding: 30px 20px;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          transform: translateX(100%);
+          z-index: 1000;
+        }
+
+        .sidebar.active {
+          transform: translateX(0);
+        }
+
+        .content {
+          padding: 40px 20px;
+          max-width: 800px;
+          margin: 0 auto;
+          text-align: center;
+        }
+
+        h1 {
+          font-size: 2em;
+          margin-bottom: 20px;
+        }
+
+        .description {
+          font-size: 1.1em;
+          margin-bottom: 40px;
+          line-height: 1.6;
+        }
+
+        .back-btn {
+          background-color: #7c9d5f;
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 20px;
+          font-size: 1em;
+          cursor: pointer;
+          text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Overlay -->
+<div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+<header>
+    <div class="logo">IT WAY</div>
+    <div class="burger" onclick="toggleSidebar()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</header>
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+    <div onclick="openHomePage()">Головна</div>
+    <div onclick="openAboutPage()">Про нас</div>
+    <div onclick="openCoursesPanel()">Курси</div>
+    <div onclick="openContactsPage()">Контакти</div>
+    <div onclick="openReviewsPage()">Відгуки</div>
+</div>
+
+<div class="content">
+    <h1>Практика: перший дотик до роботи Software Engineer — Рівень 5</h1>
+    <div class="description">
+        Після чотирьох уроків теорії настав час зробити перший крок до практики.
+        Цей урок — можливість побачити, як виглядає робота інженера не на словах, а на прикладі.
+        Завдання прості, але саме з таких дрібниць починається реальний шлях у програмуванні.
+
+        Почнемо з найпершого кроку, з якого починали мільйони розробників у всьому світі — написання програми "Hello, world!".
+        Це стандартний перший приклад, який виводить повідомлення на екран.
+        У нашому випадку ми можемо зробити це на мові Python.
+
+        Виглядає це дуже просто:
+        ```
+        python
+
+        print("Hello, world!")
+        ```
+
+        Це кілька символів, але за ними стоїть важлива річ: ви вже написали програму, яка виконує команду.
+
+        Наступне завдання — **подивитися фрагмент справжнього коду** на GitHub.
+        Це онлайн-платформа, де зберігаються тисячі проєктів.
+        Навіть не розуміючи всіх деталей, можна звернути увагу на структуру: як названі файли, як організовано папки, як оформлено коментарі в коді.
+        Це дає відчуття реальної роботи над справжнім продуктом.
+
+        Далі — розбір технічного завдання.
+        Припустимо, вам дали таку задачу: "Створити сторінку, де користувач вводить своє ім’я, натискає кнопку, і бачить привітання з цим ім’ям".
+        Як би ви це реалізували?
+        Навіть якщо ви ще не знаєте, як це програмується, можна подумати логічно:
+
+        1. Потрібен інтерфейс: поле для вводу і кнопка.
+        2. Потрібна дія: коли натискається кнопка, програма бере ім’я.
+        3. Потрібен результат: програма виводить текст типу "Привіт, Іван!"
+
+        Це і є мислення Software Engineer: розбивати задачу на кроки, навіть якщо поки не вмієш їх реалізувати технічно.
+
+        Цей урок — не для оцінок.
+        Його мета — дати можливість спробувати, подивитися, як усе виглядає зсередини, і відчути: програмування — це не магія, а набір зрозумілих дій.
+        І кожен, хто починає з простого, з часом може створювати складні й цікаві проєкти.
+
+    </div>
+    <a href="SoftwareEngineer.html" class="back-btn">Назад</a>
+</div>
+
+<script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('overlay');
+      sidebar.classList.toggle('active');
+      overlay.classList.toggle('active');
+    }
+
+    function goCourses() {
+      window.location.href = "index.html#coursesPanel"; // або окрема сторінка, якщо є
+    }
+function openContactsPage() {
+  window.open('/contacts.html', '_blank'); // або location.href = '/contacts.html';
+}
+
+function openAboutPage() {
+  window.open('/about.html', '_blank');
+}
+    function openReviewsPage() {
+  window.open('/reviews.html', '_blank'); // або просто location.href = '/reviews.html'; якщо хочеш в тій же вкладці
+}
+function openHomePage() {
+  window.open('/website.html', '_blank'); // або просто location.href = '/reviews.html'; якщо хочеш в тій же вкладці
+}
+
+</script>
+
+</body>
+</html>
