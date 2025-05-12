@@ -125,6 +125,27 @@ header {
   height: 3px;
   background-color: #333;
 }
+        h1 {
+          font-size: 2em;
+          margin-bottom: 20px;
+        }
+
+        .description {
+          font-size: 1.1em;
+          margin-bottom: 40px;
+          line-height: 1.6;
+        }
+
+        .back-btn {
+          background-color: #7c9d5f;
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 20px;
+          font-size: 1em;
+          cursor: pointer;
+          text-decoration: none;
+        }
     </style>
 </head>
 
@@ -146,7 +167,9 @@ header {
         <div class="contact-box">📧 Email: ******</div>
         <div class="contact-box">📍 Адреса: Київ</div>
     </div>
-    <a href="Website.html" class="back-btn">Назад</a>
+    <div style="text-align: center; margin: 40px 0;">
+        <a href="Website.html" class="back-btn">Назад</a>
+    </div>
 </div>
     <div class="overlay" onclick="toggleSidebar()"></div>
     <div class="sidebar" id="sidebar">
@@ -162,9 +185,6 @@ header {
         const overlay = document.querySelector('.overlay');
         sidebar.classList.toggle('active');
         overlay.classList.toggle('active');
-    }
-    function goCourses() {
-      window.location.href = "index.html#coursesPanel"; // або окрема сторінка, якщо є
     }
 function openContactsPage() {
   window.open('/contacts.html', '_blank'); // або location.href = '/contacts.html';

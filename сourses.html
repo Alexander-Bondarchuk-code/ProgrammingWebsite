@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>IT Way — Курси</title>
     <style>
+
         .courses-panel {
           position: fixed;
           top: 0;
@@ -103,39 +104,6 @@
   margin: 20px;
   background-color: #f7f7f7;
 }
-        header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #d3e3c3;
-}
-.sidebar a {
-    color: #444; /* темно-сірий */
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1em;
-    padding: 6px 0; /* зменшили вертикальний відступ */
-    display: block;
-}
-
-.sidebar a:visited {
-    color: #444;
-}
-
-.sidebar a:hover {
-    color: #222; /* ще темніший при наведенні */
-}
-        .back-btn {
-  background-color: #7c9d5f;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 20px;
-  font-size: 1em;
-  cursor: pointer;
-  text-decoration: none;
-}
 
 
     </style>
@@ -143,7 +111,26 @@
 <body>
 
 
+<!-- Overlay -->
 
+<header>
+    <div class="logo">IT WAY</div>
+    <div class="burger" onclick="toggleSidebar()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</header>
+<div class="header">IT WAY — Контакти</div>
+<!-- Sidebar -->
+<div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+<div class="sidebar" id="sidebar">
+    <div onclick="openHomePage()">Головна</div>
+    <div onclick="openAboutPage()">Про нас</div>
+    <div onclick="openCoursesPage()">Курси</div>
+    <div onclick="openContactsPage()">Контакти</div>
+    <div onclick="openReviewsPage()">Відгуки</div>
+</div>
 <!-- Панелька для "Курси" -->
 <div class="courses-panel active" id="coursesPanel">
 
@@ -211,35 +198,33 @@
 </div>
 
 <script>
-      function openCoursesPanel() {
-        document.getElementById('coursesPanel').classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
+    function toggleSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('overlay');
+  sidebar.classList.toggle('active');
+  overlay.classList.toggle('active');
+}
 
-      function closeCoursesPanel() {
-        document.getElementById('coursesPanel').classList.remove('active');
-        document.body.style.overflow = 'auto';
-      }
-        function openSoftwareEngineerPage() {
-  window.open('/SoftwareEngineer.html', '_blank'); // або location.href = '/contacts.html';
+    function openSoftwareEngineerPage() {
+window.open('/SoftwareEngineer.html', '_blank'); // або location.href = '/contacts.html';
 }
-  function openUX_UI_DesignerPage() {
-  window.open('/UX_UI_Designer.html', '_blank'); // або location.href = '/contacts.html';
+function openUX_UI_DesignerPage() {
+window.open('/UX_UI_Designer.html', '_blank'); // або location.href = '/contacts.html';
 }
-      function openQA_EngineerPage() {
-  window.open('/QA_Engineer.html', '_blank'); // або location.href = '/contacts.html';
+  function openQA_EngineerPage() {
+window.open('/QA_Engineer.html', '_blank'); // або location.href = '/contacts.html';
 }
-    function openProject_ManagerPage() {
-  window.open('/Project_Manager.html', '_blank'); // або location.href = '/contacts.html';
+function openProject_ManagerPage() {
+window.open('/Project_Manager.html', '_blank'); // або location.href = '/contacts.html';
 }
-    function openCybersecurity_SpecialistPage() {
-  window.open('/Cybersecurity_Specialist.html', '_blank'); // або location.href = '/contacts.html';
+function openCybersecurity_SpecialistPage() {
+window.open('/Cybersecurity_Specialist.html', '_blank'); // або location.href = '/contacts.html';
 }
-    function openDevOps_EngineerPage() {
-  window.open('/DevOps_Engineer.html', '_blank'); // або location.href = '/contacts.html';
+function openDevOps_EngineerPage() {
+window.open('/DevOps_Engineer.html', '_blank'); // або location.href = '/contacts.html';
 }
-    function openData_ScientistPage() {
-  window.open('/Data_Scientist.html', '_blank'); // або location.href = '/contacts.html';
+function openData_ScientistPage() {
+window.open('/Data_Scientist.html', '_blank'); // або location.href = '/contacts.html';
 }
 </script>
 
