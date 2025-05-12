@@ -115,11 +115,11 @@ header {
   background-color: #d3e3c3;
 }
         .sidebar a {
-    color: #444; /* темно-сірий */
+    color: #444;
     text-decoration: none;
     font-weight: bold;
     font-size: 1em;
-    padding: 6px 0; /* зменшили вертикальний відступ */
+    padding: 6px 0;
     display: block;
 }
 
@@ -128,7 +128,7 @@ header {
 }
 
 .sidebar a:hover {
-    color: #222; /* ще темніший при наведенні */
+    color: #222;
 }
         .burger {
   cursor: pointer;
@@ -167,7 +167,7 @@ header {
     <div class="sidebar" id="sidebar">
         <div onclick="openHomePage()">Головна</div>
         <div onclick="openAboutPage()">Про нас</div>
-        <div onclick="openCoursesPanel()">Курси</div>
+        <div onclick="openCoursesPage()">Курси</div>
         <div onclick="openContactsPage()">Контакти</div>
         <div onclick="openReviewsPage()">Відгуки</div>
     </div>
@@ -179,21 +179,21 @@ header {
             sidebar.classList.toggle('active');
             overlay.classList.toggle('active');
         }
-        function goCourses() {
-          window.location.href = "index.html#coursesPanel"; // або окрема сторінка, якщо є
+        function openCoursesPage() {
+          window.open('/courses.html', '_blank');
         }
     function openContactsPage() {
-      window.open('/contacts.html', '_blank'); // або location.href = '/contacts.html';
+      window.open('/contacts.html', '_blank');
     }
 
     function openAboutPage() {
       window.open('/about.html', '_blank');
     }
         function openReviewsPage() {
-      window.open('/reviews.html', '_blank'); // або просто location.href = '/reviews.html'; якщо хочеш в тій же вкладці
+      window.open('/reviews.html', '_blank');
     }
     function openHomePage() {
-      window.open('/website.html', '_blank'); // або просто location.href = '/reviews.html'; якщо хочеш в тій же вкладці
+      window.open('/website.html', '_blank');
     }
     </script>
 </div>

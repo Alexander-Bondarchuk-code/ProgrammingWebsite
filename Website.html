@@ -154,88 +154,6 @@
   margin-bottom: 10px;
 }
 
-        .courses-panel {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: #ffffff;
-    display: none;
-    flex-direction: column;
-    z-index: 1001;
-    overflow-y: auto;
-  }
-
-  .courses-panel.active {
-    display: flex;
-  }
-
-  .courses-content {
-    width: 100%;
-    height: 100%;
-    padding: 40px 20px;
-    text-align: center;
-  }
-
-  .course-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    margin-top: 30px;
-  }
-
-  .course-item {
-    background-color: #d3e3c3;
-    padding: 20px;
-    border-radius: 12px;
-    min-width: 200px;
-    font-weight: bold;
-  }
-
-  .close-btn {
-    margin-top: 40px;
-    background-color: #7c9d5f;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
-    font-size: 1em;
-    cursor: pointer;
-  }
-        .second-page-background {
-  background-color: #e2e8d9; /* Колір фону, такий самий як на першій сторінці */
-}
-        .course-block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #d3e3c3;
-  padding: 20px;
-  border-radius: 12px;
-  min-width: 200px;
-  max-width: 250px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.course-description {
-  margin-top: 10px;
-  font-size: 0.9em;
-  color: #333;
-  text-align: center;
-}
-.course-link {
-  text-decoration: none;
-  color: inherit;
-}
-
-.course-link:hover .course-block {
-  transform: scale(1.02);
-  transition: transform 0.2s ease;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
 @keyframes slideUp {
   from {
     transform: translateY(50px);
@@ -327,87 +245,12 @@
     </div>
 </section>
 
-
-<!-- Панелька для "Курси" -->
-<div class="courses-panel" id="coursesPanel">
-    <div class="second-page-background">
-    <div class="courses-content">
-        <h2>Курси</h2>
-        <p>Оберіть курс, який вас цікавить:</p>
-        <div class="course-grid">
-            <a href="/courses/frontend.html" class="course-link">
-                <div class="course-block">
-                    <div class="tag" onclick="openSoftwareEngineerPage()">Software Engineer</div>
-                    <div class="course-description">Створення інтерфейсів за допомогою HTML, CSS, JavaScript, React.</div>
-                </div>
-            </a>
-
-            <a href="/courses/uiux.html" class="course-link" target="_blank">
-                <div class="course-block">
-                    <div class="tag" onclick="openUI_UX_DesignPage()">UI/UX Design</div>
-                    <div class="course-description">Проєктування дизайну, користувацького досвіду та макетів.</div>
-                </div>
-            </a>
-
-            <a href="/courses/qa.html" class="course-link" target="_blank">
-                <div class="course-block">
-                    <div class="tag" onclick="openQA_EngineerPage()">QA Engineer</div>
-                    <div class="course-description">Тестування застосунків автоматичними засобами (Selenium, Postman).</div>
-                </div>
-            </a>
-
-            <a href="/courses/datascience.html" class="course-link" target="_blank">
-                <div class="course-block">
-                    <div class="tag" onclick="openData_SciencePage()">Data Science</div>
-                    <div class="course-description">Аналіз даних, машинне навчання, Python, моделі прогнозування.</div>
-                </div>
-            </a>
-
-            <a href="/courses/devops.html" class="course-link" target="_blank">
-                <div class="course-block">
-                    <div class="tag" onclick="openDevOps_EngineerPage()">DevOps Engineer</div>
-                    <div class="course-description">CI/CD, Docker, Kubernetes, робота з інфраструктурою.</div>
-                </div>
-            </a>
-
-            <a href="/courses/cybersecurity.html" class="course-link" target="_blank">
-                <div class="course-block">
-                    <div class="tag" onclick="openCybersecurity_SpecialistPage()">Cybersecurity Specialist</div>
-                    <div class="course-description">Захист інформації, етичний хакинг, мережеві протоколи.</div>
-                </div>
-            </a>
-
-            <a href="/courses/management.html" class="course-link" target="_blank">
-                <div class="course-block">
-                    <div class="tag" onclick="openProject_ManagementPage()">Project Management</div>
-                    <div class="course-description">Scrum, Agile, планування, управління командами.</div>
-                </div>
-            </a>
-        </div>
-
-        <button class="close-btn" onclick="closeCoursesPanel()">Закрити</button>
-    </div>
-</div>
-</div>
-
 <script>
     function toggleSidebar() {
       const sidebar = document.getElementById('sidebar');
       const overlay = document.getElementById('overlay');
       sidebar.classList.toggle('active');
       overlay.classList.toggle('active');
-    }
-
-    function openCoursesPanel() {
-      document.getElementById('coursesPanel').classList.add('active');
-      document.body.style.overflow = 'hidden';
-      document.getElementById('sidebar').classList.remove('active');
-      document.getElementById('overlay').classList.remove('active');
-    }
-
-    function closeCoursesPanel() {
-      document.getElementById('coursesPanel').classList.remove('active');
-      document.body.style.overflow = 'auto';
     }
     function openAboutPage() {
   window.open('/about.html', '_blank'); // заміни '/about.html' на потрібну URL-адресу

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>IT Way — Курси</title>
+    <style>
+        .courses-panel {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: #ffffff;
+          display: none;
+          flex-direction: column;
+          z-index: 1001;
+          overflow-y: auto;
+        }
+
+        .courses-panel.active {
+          display: flex;
+        }
+
+        .courses-content {
+          width: 100%;
+          height: 100%;
+          padding: 40px 20px;
+          text-align: center;
+        }
+
+        .course-grid {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 20px;
+          justify-content: center;
+          margin-top: 30px;
+        }
+
+        .course-block {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          background-color: #d3e3c3;
+          padding: 20px;
+          border-radius: 12px;
+          min-width: 200px;
+          max-width: 250px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .course-description {
+          margin-top: 10px;
+          font-size: 0.9em;
+          color: #333;
+          text-align: center;
+        }
+
+        .course-link {
+          text-decoration: none;
+          color: inherit;
+        }
+
+        .course-link:hover .course-block {
+          transform: scale(1.02);
+          transition: transform 0.2s ease;
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .close-btn {
+          margin-top: 40px;
+          background-color: #7c9d5f;
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 20px;
+          font-size: 1em;
+          cursor: pointer;
+        }
+.second-page-background {
+  background-color: #e2e8d9; /* Такий самий як на головній */
+}
+.courses-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #e2e8d9;
+  display: none;
+  flex-direction: column;
+  z-index: 1001;
+  overflow-y: auto;
+}
+
+.tag {
+  display: inline-block;
+  padding: 10px 15px;
+  border: 2px solid #333;
+  border-radius: 20px;
+  font-size: 1em;
+  cursor: pointer;
+  margin: 20px;
+  background-color: #f7f7f7;
+}
+        header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #d3e3c3;
+}
+.sidebar a {
+    color: #444; /* темно-сірий */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1em;
+    padding: 6px 0; /* зменшили вертикальний відступ */
+    display: block;
+}
+
+.sidebar a:visited {
+    color: #444;
+}
+
+.sidebar a:hover {
+    color: #222; /* ще темніший при наведенні */
+}
+        .back-btn {
+  background-color: #7c9d5f;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  font-size: 1em;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+
+    </style>
+</head>
+<body>
+
+
+
+<!-- Панелька для "Курси" -->
+<div class="courses-panel active" id="coursesPanel">
+
+    <div class="second-page-background">
+        <div class="courses-content">
+            <h2>Курси</h2>
+            <p>Оберіть курс, який вас цікавить:</p>
+            <div class="course-grid">
+
+                <a href="SoftwareEngineer.html" class="course-link" target="_blank">
+                    <div class="course-block">
+                        <div class="tag">Software Engineer</div>
+                        <div class="course-description">HTML, CSS, JavaScript, React</div>
+                    </div>
+                </a>
+                <a href="/UX_UI_Designer.html" class="course-link" target="_blank">
+                    <div class="course-block">
+                        <div class="tag">UI UX Design</div>
+                        <div class="course-description">Проєктування дизайну, користувацького досвіду та макетів.</div>
+                    </div>
+                </a>
+
+                <a href="/QA_Engineer.html" class="course-link" target="_blank">
+                    <div class="course-block">
+                        <div class="tag">QA Engineer</div>
+                        <div class="course-description">Тестування застосунків автоматичними засобами (Selenium, Postman).</div>
+                    </div>
+                </a>
+
+                <a href="/Data_Scientist.html" class="course-link" target="_blank">
+                    <div class="course-block">
+                        <div class="tag">Data Scientist</div>
+                        <div class="course-description">Аналіз даних, машинне навчання, Python, моделі прогнозування.</div>
+                    </div>
+                </a>
+
+                <a href="/DevOps_Engineer.html" class="course-link" target="_blank">
+                    <div class="course-block">
+                        <div class="tag">DevOps Engineer</div>
+                        <div class="course-description">CI/CD, Docker, Kubernetes, робота з інфраструктурою.</div>
+                    </div>
+                </a>
+
+                <a href="/Cybersecurity_Specialist.html" class="course-link" target="_blank">
+                    <div class="course-block">
+                        <div class="tag">Cybersecurity Specialist</div>
+                        <div class="course-description">Захист інформації, етичний хакинг, мережеві протоколи.</div>
+                    </div>
+                </a>
+
+                <a href="/Project_Manager.html" class="course-link" target="_blank">
+                    <div class="course-block">
+                        <div class="tag">Project Management</div>
+                        <div class="course-description">Scrum, Agile, планування, управління командами.</div>
+                    </div>
+                </a>
+
+            </div>
+
+            <div style="text-align: center; margin: 40px 0;">
+                <a href="Website.html" class="back-btn">Назад</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+      function openCoursesPanel() {
+        document.getElementById('coursesPanel').classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeCoursesPanel() {
+        document.getElementById('coursesPanel').classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+        function openSoftwareEngineerPage() {
+  window.open('/SoftwareEngineer.html', '_blank'); // або location.href = '/contacts.html';
+}
+  function openUX_UI_DesignerPage() {
+  window.open('/UX_UI_Designer.html', '_blank'); // або location.href = '/contacts.html';
+}
+      function openQA_EngineerPage() {
+  window.open('/QA_Engineer.html', '_blank'); // або location.href = '/contacts.html';
+}
+    function openProject_ManagerPage() {
+  window.open('/Project_Manager.html', '_blank'); // або location.href = '/contacts.html';
+}
+    function openCybersecurity_SpecialistPage() {
+  window.open('/Cybersecurity_Specialist.html', '_blank'); // або location.href = '/contacts.html';
+}
+    function openDevOps_EngineerPage() {
+  window.open('/DevOps_Engineer.html', '_blank'); // або location.href = '/contacts.html';
+}
+    function openData_ScientistPage() {
+  window.open('/Data_Scientist.html', '_blank'); // або location.href = '/contacts.html';
+}
+</script>
+
+</body>
+</html>
