@@ -294,6 +294,17 @@
 .sidebar a:hover {
     color: #222; /* ще темніший при наведенні */
 }
+        .back-btn {
+  background-color: #7c9d5f;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  font-size: 1em;
+  cursor: pointer;
+  text-decoration: none;
+}
+
 
     </style>
 </head>
@@ -330,21 +341,25 @@
     <div onclick="openContactsPage()">Контакти</div>
     <div onclick="openReviewsPage()">Відгуки</div>
 </div>
-<section class="bottom-panels">
-    <div class="panel">
-        <img src="pictures/default.jpg" alt="Фото 4" class="panel-img">
-        <p>Професійні викладачі</p>
+    <section class="bottom-panels">
+        <div class="panel">
+            <img src="pictures/default.jpg" alt="Фото 4" class="panel-img">
+            <p>Професійні викладачі</p>
+        </div>
+        <div class="panel">
+            <img src="images/Фото2.jpg" alt="Фото 2" class="panel-img">
+            <p>Актуальні технології</p>
+        </div>
+        <div class="panel">
+            <img src="images/Фото3.jpg" alt="Фото 3" class="panel-img">
+            <p>Сотні успішних випускників</p>
+        </div>
+    </section>
+
+    <!-- 👇 Окрема секція під панелями -->
+    <div style="text-align: center; margin: 40px 0;">
+        <a href="Website.html" class="back-btn">Назад</a>
     </div>
-    <div class="panel">
-        <img src="images/Фото2.jpg" alt="Фото 2" class="panel-img">
-        <p>Актуальні технології</p>
-    </div>
-    <div class="panel">
-        <img src="images/Фото3.jpg" alt="Фото 3" class="panel-img">
-        <p>Сотні успішних випускників</p>
-    </div>
-    <a href="Website.html" class="back-btn">Назад</a>
-</section>
 <script>
     function toggleSidebar() {
         const sidebar = document.getElementById('sidebar');
