@@ -167,9 +167,14 @@
 }
 
 .bottom-panels .panel {
-  animation: slideUp 0.8s ease forwards;
-  opacity: 0; /* для плавного ефекту */
+  opacity: 0;
+  transform: translateY(50px);
 }
+
+.bottom-panels .panel.active {
+  animation: slideUp 0.8s ease forwards;
+}
+
 
 
     </style>
@@ -247,6 +252,13 @@
 </section>
 
 <script>
+    document.addEventListener("DOMContentLoaded", function () {
+  const panels = document.querySelectorAll('.bottom-panels .panel');
+  panels.forEach((panel, index) => {
+    panel.style.animationDelay = `${index * 0.3}s`;
+    panel.classList.add('active');
+  });
+});
     function toggleSidebar() {
       const sidebar = document.getElementById('sidebar');
       const overlay = document.getElementById('overlay');
