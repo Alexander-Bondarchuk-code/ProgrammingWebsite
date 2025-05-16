@@ -247,32 +247,38 @@
 </section>
 
 <script>
-    function toggleSidebar() {
-     const sidebar = document.getElementById('sidebar');
-     const overlay = document.getElementById('overlay');
-     sidebar.classList.toggle('active');
-     overlay.classList.toggle('active');
-   }
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        function toggleSidebar() {
+          const sidebar = document.getElementById('sidebar');
+          const overlay = document.getElementById('overlay');
+          sidebar.classList.toggle('active');
+          overlay.classList.toggle('active');
+        }
 
-   function openCoursesPage() {
-     window.open('courses.html', '_blank');
-   }
+        window.toggleSidebar = toggleSidebar;
 
-   function openAboutPage() {
-     window.open('about.html', '_blank');
-   }
+        function openCoursesPage() {
+          window.open('courses.html', '_blank');
+        }
 
-   function openReviewsPage() {
-     window.open('reviews.html', '_blank');
-   }
+        function openAboutPage() {
+          window.open('about.html', '_blank');
+        }
 
-   function openContactsPage() {
-     window.open('contacts.html', '_blank');
-   }
+        function openReviewsPage() {
+          window.open('reviews.html', '_blank');
+        }
 
-   function openHomePage() {
-     window.open('website.html', '_blank');
-   }
+        function openContactsPage() {
+          window.open('contacts.html', '_blank');
+        }
+
+        window.openCoursesPage = openCoursesPage;
+        window.openAboutPage = openAboutPage;
+        window.openReviewsPage = openReviewsPage;
+        window.openContactsPage = openContactsPage;
+      });
 
    function openSoftwareEngineerPage() {
      window.open('SoftwareEngineer.html', '_blank');
