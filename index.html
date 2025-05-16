@@ -247,15 +247,13 @@
 </section>
 
 <script>
-      document.addEventListener("DOMContentLoaded", function () {
+    <script>
         function toggleSidebar() {
           const sidebar = document.getElementById('sidebar');
           const overlay = document.getElementById('overlay');
           sidebar.classList.toggle('active');
           overlay.classList.toggle('active');
         }
-
-        window.toggleSidebar = toggleSidebar;
 
         function openCoursesPage() {
           window.open('courses.html', '_blank');
@@ -272,12 +270,6 @@
         function openContactsPage() {
           window.open('contacts.html', '_blank');
         }
-
-        window.openCoursesPage = openCoursesPage;
-        window.openAboutPage = openAboutPage;
-        window.openReviewsPage = openReviewsPage;
-        window.openContactsPage = openContactsPage;
-      });
 
    function openSoftwareEngineerPage() {
      window.open('SoftwareEngineer.html', '_blank');
