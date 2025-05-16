@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="uk">
 <head>
@@ -167,14 +166,9 @@
 }
 
 .bottom-panels .panel {
-  opacity: 0;
-  transform: translateY(50px);
-}
-
-.bottom-panels .panel.active {
   animation: slideUp 0.8s ease forwards;
+  opacity: 0; /* для плавного ефекту */
 }
-
 
 
     </style>
@@ -226,14 +220,14 @@
 <section class="courses">
     <h2>Навчальні напрямки</h2>
     <div class="course-tags">
-        <div class="tag" onclick="openCoursesPage()">Усі курси</div>
+        <div class="tag" onclick="openCoursesPanel()">Усі курси</div>
         <div class="tag" onclick="openSoftwareEngineerPage()">Software Engineer</div>
-            <div class="tag" onclick="openUX_UI_DesignerPage()">UX/UI Designer</div>
-            <div class="tag" onclick="openQA_EngineerPage()">QA Engineer</div>
-            <div class="tag" onclick="openProject_ManagerPage()">Project Manager</div>
-            <div class="tag" onclick="openCybersecurity_SpecialistPage()">Cybersecurity Specialist</div>
-            <div class="tag" onclick="openDevOps_EngineerPage()">DevOps Engineer</div>
-            <div class="tag" onclick="openData_ScientistPage()">Data Scientist</div>
+        <div class="tag" onclick="openUX_UI_DesignerPage()">UX/UI Designer</div>
+        <div class="tag" onclick="openQA_EngineerPage()">QA Engineer</div>
+        <div class="tag" onclick="openProject_ManagerPage()">Project Manager</div>
+        <div class="tag" onclick="openCybersecurity_SpecialistPage()">Cybersecurity Specialist</div>
+        <div class="tag" onclick="openDevOps_EngineerPage()">DevOps Engineer</div>
+        <div class="tag" onclick="openData_ScientistPage()">Data Scientist</div>
     </div>
 </section>
 <section class="bottom-panels">
@@ -252,63 +246,60 @@
 </section>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-  const panels = document.querySelectorAll('.bottom-panels .panel');
-  panels.forEach((panel, index) => {
-    panel.style.animationDelay = `${index * 0.3}s`;
-    panel.classList.add('active');
-  });
-});
     function toggleSidebar() {
-      const sidebar = document.getElementById('sidebar');
-      const overlay = document.getElementById('overlay');
-      sidebar.classList.toggle('active');
-      overlay.classList.toggle('active');
-    }
+     const sidebar = document.getElementById('sidebar');
+     const overlay = document.getElementById('overlay');
+     sidebar.classList.toggle('active');
+     overlay.classList.toggle('active');
+   }
 
-    function openCoursesPage() {
-      window.open('courses.html', '_blank');
-    }
+   function openCoursesPage() {
+     window.open('сourses.html', '_blank');
+   }
 
-    function openAboutPage() {
-      window.open('about.html', '_blank');
-    }
+   function openAboutPage() {
+     window.open('about.html', '_blank');
+   }
 
-    function openReviewsPage() {
-      window.open('reviews.html', '_blank');
-    }
+   function openReviewsPage() {
+     window.open('reviews.html', '_blank');
+   }
 
-    function openContactsPage() {
-      window.open('contacts.html', '_blank');
-    }
+   function openContactsPage() {
+     window.open('contacts.html', '_blank');
+   }
 
-    function openSoftwareEngineerPage() {
-      window.open('SoftwareEngineer.html', '_blank');
-    }
+   function openHomePage() {
+     window.open('website.html', '_blank');
+   }
 
-    function openUX_UI_DesignerPage() {
-      window.open('UX_UI_Designer.html', '_blank');
-    }
+   function openSoftwareEngineerPage() {
+     window.open('SoftwareEngineer.html', '_blank');
+   }
 
-    function openQA_EngineerPage() {
-      window.open('QA_Engineer.html', '_blank');
-    }
+   function openUX_UI_DesignerPage() {
+     window.open('UX_UI_Designer.html', '_blank');
+   }
 
-    function openProject_ManagerPage() {
-      window.open('Project_Manager.html', '_blank');
-    }
+   function openQA_EngineerPage() {
+     window.open('QA_Engineer.html', '_blank');
+   }
 
-    function openCybersecurity_SpecialistPage() {
-      window.open('Cybersecurity_Specialist.html', '_blank');
-    }
+   function openProject_ManagerPage() {
+     window.open('Project_Manager.html', '_blank');
+   }
 
-    function openDevOps_EngineerPage() {
-      window.open('DevOps_Engineer.html', '_blank');
-    }
+   function openCybersecurity_SpecialistPage() {
+     window.open('Cybersecurity_Specialist.html', '_blank');
+   }
 
-    function openData_ScientistPage() {
-      window.open('Data_Scientist.html', '_blank');
-    }
+   function openDevOps_EngineerPage() {
+     window.open('DevOps_Engineer.html', '_blank');
+   }
+
+   function openData_ScientistPage() {
+     window.open('Data_Scientist.html', '_blank');
+   }
 </script>
 
 </body>
