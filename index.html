@@ -1,192 +1,207 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IT Way — Курси IT</title>
+    <meta charset="UTF-8"><!-- Вказує кодування сторінки -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- Задає адаптивність сторінки -->
+    <title>IT Way — Курси IT</title><!-- Заголовок сторінки -->
     <style>
-        body {
-          margin: 0;
-          font-family: 'Segoe UI', sans-serif;
-          background-color: #e2e8d9;
-          color: #1f1f1f;
-          overflow-x: hidden;
+        /* Стилі для всього тіла сторінки */
+           body {
+          margin: 0; /* Прибираємо відступи по краях */
+          font-family: 'Segoe UI', sans-serif; /* Шрифт сторінки */
+          background-color: #e2e8d9; /* Колір фону сторінки */
+          color: #1f1f1f; /* Колір тексту */
+          overflow-x: hidden; /* Приховує горизонтальний скрол */
         }
 
-        header {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 20px;
-          background-color: #d3e3c3;
+         header {
+          display: flex; /* Використовуємо flex для розташування елементів по горизонталі */
+          justify-content: space-between; /* Розміщуємо логотип та бургер-меню по краях */
+          align-items: center; /* Вирівнюємо елементи по вертикалі */
+          padding: 20px; /* Відступи всередині */
+          background-color: #d3e3c3; /* Колір фону шапки */
         }
 
+      /* Стиль логотипу */
         .logo {
-          font-weight: bold;
-          font-size: 1.5em;
+          font-weight: bold; /* Жирний шрифт */
+          font-size: 1.5em; /* Розмір тексту */
         }
 
+        /* Стилі для бургер-меню (три лінії) */
         .burger {
-          cursor: pointer;
+          cursor: pointer; /* Курсор при наведенні */
           display: flex;
-          flex-direction: column;
-          gap: 5px;
+          flex-direction: column; /* Лінії йдуть вертикально */
+          gap: 5px; /* Відстань між лініями */
         }
 
-        .burger div {
-          width: 25px;
-          height: 3px;
-          background-color: #333;
+          .burger div {
+          width: 25px; /* Ширина лінії */
+          height: 3px; /* Висота лінії */
+          background-color: #333; /* Колір лінії */
         }
 
+        /* Фон, що затемнює весь екран при відкритому сайдбарі */
         .overlay {
-          position: fixed;
+          position: fixed; /* Фіксується на екрані */
           top: 0;
           left: 0;
-          width: 100vw;
-          height: 100vh;
-          background: rgba(0, 0, 0, 0.3);
-          z-index: 999;
-          display: none;
+          width: 100vw; /* Покриває всю ширину вікна */
+          height: 100vh; /* Покриває всю висоту вікна */
+          background: rgba(0, 0, 0, 0.3); /* Напівпрозорий чорний фон */
+          z-index: 999; /* Знаходиться над іншими елементами */
+          display: none; /* За замовчуванням прихований */
         }
 
         .overlay.active {
           display: block;
         }
 
+        /* Бокове меню (сайдбар) */
         .sidebar {
-          position: fixed;
+          position: fixed; /* Фіксоване положення */
           top: 0;
-          right: 0;
-          width: 250px;
-          height: 100vh;
-          background-color: #f0f0f0;
-          box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
-          transition: transform 0.3s ease;
-          padding: 30px 20px;
+          right: 0; /* З'являється справа */
+          width: 250px; /* Ширина сайдбару */
+          height: 100vh; /* Висота сайдбару на всю висоту вікна */
+          background-color: #f0f0f0; /* Колір фону */
+          box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2); /* Тінь збоку */
+          transition: transform 0.3s ease; /* Плавне анімування відкриття */
+          padding: 30px 20px; /* Внутрішні відступи */
           display: flex;
-          flex-direction: column;
-          gap: 20px;
-          transform: translateX(100%);
-          z-index: 1000;
+          flex-direction: column; /* Елементи в стовпчик */
+          gap: 20px; /* Відстань між пунктами меню */
+          transform: translateX(100%); /* За замовчуванням - схований праворуч */
+          z-index: 1000; /* Знаходиться над overlay */
         }
 
+               /* Коли сайдбар активний — він видимий */
         .sidebar.active {
           transform: translateX(0);
         }
 
+        /* Головний блок-герой (вітальна секція) */
         .hero {
-          text-align: center;
-          padding: 60px 20px;
+          text-align: center; /* Центруємо текст */
+          padding: 60px 20px; /* Відступи зверху і з боків */
         }
 
+        /* Заголовок героя */
         .hero h1 {
           font-size: 2em;
           margin-bottom: 10px;
         }
 
         .button {
-          background-color: #7c9d5f;
-          color: white;
-          padding: 10px 20px;
-          border: none;
-          border-radius: 20px;
+          background-color: #7c9d5f; /* Колір фону кнопки */
+          color: white; /* Колір тексту */
+          padding: 10px 20px; /* Відступи всередині */
+          border: none; /* Без рамки */
+          border-radius: 20px; /* Закруглені краї */
           font-size: 1em;
-          cursor: pointer;
-          margin: 20px 0;
+          cursor: pointer; /* Курсор при наведенні */
+          margin: 20px 0; /* Відступи зверху і знизу */
         }
 
+        /* Статистика (кілька блоків з цифрами) */
         .stats {
-          display: flex;
-          justify-content: space-around;
-          flex-wrap: wrap;
-          background-color: #dce9d2;
+          display: flex; /* Горизонтальне розміщення */
+          justify-content: space-around; /* Розподіл простору */
+          flex-wrap: wrap; /* Якщо не влазить - переносить на новий рядок */
+          background-color: #dce9d2; /* Фон секції */
           padding: 30px 10px;
         }
 
+         /* Кожен блок статистики */
         .stat-box {
-          text-align: center;
+          text-align: center; /* Центр тексту */
           margin: 10px;
         }
 
+        /* Секція курсів */
         .courses {
           padding: 30px 20px;
         }
 
+        /* Заголовок курсів */
         .courses h2 {
           text-align: center;
           margin-bottom: 20px;
         }
 
-        .course-tags {
+           .course-tags {
           display: flex;
-          flex-wrap: wrap;
+          flex-wrap: wrap; /* Перенос рядків */
           justify-content: center;
-          gap: 10px;
+          gap: 10px; /* Відстань між тегами */
         }
 
+        /* Стилі для тегів напрямків */
         .tag {
-          border: 2px solid #333;
-          border-radius: 20px;
+          border: 2px solid #333; /* Рамка */
+          border-radius: 20px; /* Закруглені краї */
           padding: 5px 15px;
           font-size: 0.9em;
-          cursor: pointer;
+          cursor: pointer; /* Вказує, що тег клікабельний */
         }
-        .bottom-panels {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  padding: 40px 20px;
-  background-color: #d3e3c3;
-  gap: 20px;
-}
 
-.panel {
-  text-align: center;
-  max-width: 200px;
-}
+       .bottom-panels {
+          display: flex;
+          justify-content: space-around;
+          flex-wrap: wrap;
+          padding: 40px 20px;
+          background-color: #d3e3c3;
+          gap: 20px;
+        }
 
-.panel-img {
-  width: 100%;
-  max-width: 100px;
-  height: auto;
-  border-radius: 50%;
-  margin-bottom: 10px;
-}
+        /* Кожна панель */
+        .panel {
+          text-align: center;
+          max-width: 200px;
+        }
 
-@keyframes slideUp {
-  from {
-    transform: translateY(50px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
+        /* Картинка в панелі */
+        .panel-img {
+          width: 100%;
+          max-width: 100px;
+          height: auto;
+          border-radius: 50%; /* Кругла форма */
+          margin-bottom: 10px;
+        }
 
-.bottom-panels .panel {
-  animation: slideUp 0.8s ease forwards;
-  opacity: 0; /* для плавного ефекту */
-}
+  @keyframes slideUp {
+          from {
+            transform: translateY(50px);
+            opacity: 0;
+          }
+          to {
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
 
-
+        /* Застосовуємо анімацію до панелей */
+        .bottom-panels .panel {
+          animation: slideUp 0.8s ease forwards;
+          opacity: 0; /* Початково невидимі */
+        }
     </style>
 </head>
 <body class="second-page-background">
 
-<!-- Overlay (фон, що затемнює контент) -->
+<!-- Фон, що затемнює контент при відкритому сайдбарі -->
 <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
-
+<!-- Шапка сайту -->
 <header>
     <div class="logo">IT WAY</div>
-    <div class="burger" onclick="toggleSidebar()">
+    <div class="burger" onclick="toggleSidebar()"><!-- Іконка бургер-меню -->
         <div></div>
         <div></div>
         <div></div>
     </div>
 </header>
-
+<!-- Бокове меню -->
 <div class="sidebar" id="sidebar">
     <div onclick="openHomePage()">Головна</div>
     <div onclick="openAboutPage()">Про нас</div>
@@ -195,13 +210,13 @@
     <div onclick="openContactsPage()">Контакти</div>
 </div>
 
-
+<!-- Основний блок героя (головне вітання) -->
 <section class="hero">
     <h1>Курси IT — відкрити двері у майбутнє</h1>
     <button class="button">Безкоштовна консультація</button>
     <p>IT Way займається створенням актуальних навчальних програм, що змінюють ставлення до IT назавжди.</p>
 </section>
-
+<!-- Статистика компанії -->
 <section class="stats">
     <div class="stat-box">
         <h2>8+</h2>
@@ -216,7 +231,7 @@
         <p>Учнів випущено</p>
     </div>
 </section>
-
+<!-- Секція з напрямками курсів -->
 <section class="courses">
     <h2>Навчальні напрямки</h2>
     <div class="course-tags">
@@ -230,6 +245,7 @@
         <div class="tag" onclick="openData_ScientistPage()">Data Scientist</div>
     </div>
 </section>
+<!-- Нижні панелі з інформацією -->
 <section class="bottom-panels">
     <div class="panel">
         <img src="images/Фото1.jpg" alt="Фото 1" class="panel-img">
@@ -246,13 +262,14 @@
 </section>
 
 <script>
+    // Функція відкриває/закриває сайдбар і затемнювач фону
     function toggleSidebar() {
      const sidebar = document.getElementById('sidebar');
      const overlay = document.getElementById('overlay');
      sidebar.classList.toggle('active');
      overlay.classList.toggle('active');
    }
-
+// Функції для навігації — заміни на реальні дії
 function openContactsPage() {
 window.location.href = 'contacts.html';
 }
@@ -263,6 +280,7 @@ window.location.href = 'about.html';
     function openReviewsPage() {
     window.location.href = 'reviews.html';
 }
+
 function openHomePage() {
   window.location.href = 'index.html';
 }
